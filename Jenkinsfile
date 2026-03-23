@@ -12,7 +12,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'target/*.html', fingerprint: true
+            archiveArtifacts artifacts: 'target/**/*', allowEmptyArchive: true
         }
     }
 }
