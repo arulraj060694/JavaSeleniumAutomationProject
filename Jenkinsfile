@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/username/projectname.git'
+                git 'https://github.com/arulraj060694/JavaSeleniumAutomationProject.git'
             }
         }
 
