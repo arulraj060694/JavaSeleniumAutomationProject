@@ -3,28 +3,16 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
+        stage('Build & Test') {
             steps {
-                git 'https://github.com/arulraj060694/JavaSeleniumAutomationProject.git'
+                bat 'mvn clean test'
             }
         }
+    }
 
-        stage('Build') {
-            steps {
-                bat 'mvn clean install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                bat 'mvn test'
-            }
-        }
-
-        stage('Archive Reports') {
-            steps {
-                archiveArtifacts artifacts: 'target/**/*'
-            }
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.html', fingerprint: true
         }
     }
 }
